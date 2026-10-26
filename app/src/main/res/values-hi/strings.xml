@@ -635,6 +635,21 @@
     <string name="audio_stream_unnamed_format">स्ट्रीम %1$d</string>
     <string name="audio_stream_unavailable_format">स्ट्रीम %1$d (इस डिवाइस पर नहीं है)</string>
     <string name="audio_stream_vendor_info">इस हेड यूनिट में ऐसी आउटपुट स्ट्रीम हैं जो स्टॉक Android में नहीं होतीं। उन्हें नीचे उसी नाम से दिखाया गया है जो हेड यूनिट का अपना सिस्टम देता है। कार का एम्प्लिफ़ायर अक्सर इन्हीं से जुड़ा होता है, इसलिए कोई चैनल बिल्कुल शांत रहे तो स्पीकर बटन से इन्हें आज़माएँ।</string>
+    <string name="audio_usage_automotive_info">यह एक Android Automotive हेड यूनिट है। कार यह तय करती है कि ऑडियो कहाँ बजेगा, स्ट्रीम से नहीं बल्कि आवाज़ के प्रकार से, इसलिए नीचे यही प्रकार दिए गए हैं, हर एक के साथ वह आउटपुट जिस पर कार उसे भेजती है। हर चैनल के लिए वह प्रकार चुनें जिसका आउटपुट आपकी इच्छा अनुसार जुड़ा है, जैसे मार्गदर्शन के लिए नेविगेशन निर्देश, और स्पीकर बटन से जाँच करें।</string>
+    <string name="audio_usage_output_format">%1$s → %2$s</string>
+    <string name="audio_usage_unavailable_format">उपयोग %1$d (इस डिवाइस पर उपलब्ध नहीं)</string>
+    <string name="audio_usage_media">मीडिया</string>
+    <string name="audio_usage_navigation_guidance">नेविगेशन निर्देश</string>
+    <string name="audio_usage_assistant">वॉइस असिस्टेंट</string>
+    <string name="audio_usage_voice_communication">फ़ोन कॉल</string>
+    <string name="audio_usage_voice_communication_signalling">कॉल संकेत</string>
+    <string name="audio_usage_notification_ringtone">रिंगटोन</string>
+    <string name="audio_usage_notification">सूचना</string>
+    <string name="audio_usage_notification_event">सूचना इवेंट</string>
+    <string name="audio_usage_alarm">अलार्म</string>
+    <string name="audio_usage_assistance_sonification">सिस्टम ध्वनियाँ</string>
+    <string name="audio_usage_assistance_accessibility">सुलभता</string>
+    <string name="audio_usage_game">गेम</string>
 
     <!-- Onboarding: audio step -->
     <string name="onb_audio_title">ऑडियो</string>

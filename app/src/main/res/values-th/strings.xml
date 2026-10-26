@@ -635,6 +635,21 @@
     <string name="audio_stream_unnamed_format">สตรีม %1$d</string>
     <string name="audio_stream_unavailable_format">สตรีม %1$d (ไม่มีในอุปกรณ์นี้)</string>
     <string name="audio_stream_vendor_info">เฮดยูนิตนี้มีสตรีมเอาต์พุตที่ Android ทั่วไปไม่มี ซึ่งแสดงไว้ด้านล่างตามชื่อที่ระบบของเฮดยูนิตตั้งไว้ สตรีมเหล่านี้มักเป็นสตรีมที่แอมป์ของรถต่ออยู่จริง หากช่องใดเงียบ ให้ลองทดสอบด้วยปุ่มลำโพง</string>
+    <string name="audio_usage_automotive_info">นี่คือเครื่องเสียงรถยนต์ Android Automotive รถจะเลือกว่าเสียงจะเล่นที่ใดตามประเภทของเสียง ไม่ใช่ตามสตรีม ตัวเลือกด้านล่างจึงเป็นประเภทเหล่านั้น แต่ละรายการแสดงเอาต์พุตที่รถส่งเสียงไป เลือกประเภทที่เอาต์พุตต่อไว้ตามที่คุณต้องการสำหรับแต่ละช่อง เช่น คำแนะนำการนำทางสำหรับเสียงนำทาง แล้วตรวจสอบด้วยปุ่มลำโพง</string>
+    <string name="audio_usage_output_format">%1$s → %2$s</string>
+    <string name="audio_usage_unavailable_format">การใช้งาน %1$d (ไม่มีในอุปกรณ์นี้)</string>
+    <string name="audio_usage_media">สื่อ</string>
+    <string name="audio_usage_navigation_guidance">คำแนะนำการนำทาง</string>
+    <string name="audio_usage_assistant">ผู้ช่วยเสียง</string>
+    <string name="audio_usage_voice_communication">การโทร</string>
+    <string name="audio_usage_voice_communication_signalling">สัญญาณการโทร</string>
+    <string name="audio_usage_notification_ringtone">เสียงเรียกเข้า</string>
+    <string name="audio_usage_notification">การแจ้งเตือน</string>
+    <string name="audio_usage_notification_event">เหตุการณ์การแจ้งเตือน</string>
+    <string name="audio_usage_alarm">นาฬิกาปลุก</string>
+    <string name="audio_usage_assistance_sonification">เสียงระบบ</string>
+    <string name="audio_usage_assistance_accessibility">การช่วยเหลือพิเศษ</string>
+    <string name="audio_usage_game">เกม</string>
 
     <!-- Onboarding: audio step -->
     <string name="onb_audio_title">เสียง</string>

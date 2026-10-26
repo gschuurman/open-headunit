@@ -636,6 +636,21 @@
     <string name="audio_stream_unnamed_format">Fluxo %1$d</string>
     <string name="audio_stream_unavailable_format">Fluxo %1$d (não existe neste dispositivo)</string>
     <string name="audio_stream_vendor_info">Esta unidade tem fluxos de saída que o Android padrão não tem, apresentados abaixo com os nomes que o próprio sistema lhes dá. Muitas vezes, o amplificador do carro está ligado a estes fluxos. Se um canal ficar sem som, experimente-os com o botão do altifalante.</string>
+    <string name="audio_usage_automotive_info">Esta é uma unidade principal Android Automotive. O carro decide onde o áudio é reproduzido pelo tipo de som, não pelo fluxo, por isso as opções abaixo são esses tipos, cada um com a saída para onde o carro o envia. Escolha para cada canal o tipo cuja saída está ligada como pretende, por exemplo Instruções de navegação para Orientação, e confirme com o botão do altifalante.</string>
+    <string name="audio_usage_output_format">%1$s → %2$s</string>
+    <string name="audio_usage_unavailable_format">Utilização %1$d (não disponível neste dispositivo)</string>
+    <string name="audio_usage_media">Multimédia</string>
+    <string name="audio_usage_navigation_guidance">Instruções de navegação</string>
+    <string name="audio_usage_assistant">Assistente de voz</string>
+    <string name="audio_usage_voice_communication">Chamada telefónica</string>
+    <string name="audio_usage_voice_communication_signalling">Sinais de chamada</string>
+    <string name="audio_usage_notification_ringtone">Toque</string>
+    <string name="audio_usage_notification">Notificação</string>
+    <string name="audio_usage_notification_event">Evento de notificação</string>
+    <string name="audio_usage_alarm">Alarme</string>
+    <string name="audio_usage_assistance_sonification">Sons do sistema</string>
+    <string name="audio_usage_assistance_accessibility">Acessibilidade</string>
+    <string name="audio_usage_game">Jogo</string>
 
     <!-- Onboarding: audio step -->
     <string name="onb_audio_title">Áudio</string>

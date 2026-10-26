@@ -635,6 +635,21 @@
     <string name="audio_stream_unnamed_format">Aliran %1$d</string>
     <string name="audio_stream_unavailable_format">Aliran %1$d (tidak ada di perangkat ini)</string>
     <string name="audio_stream_vendor_info">Head unit ini memiliki aliran keluaran yang tidak ada di Android standar, tercantum di bawah ini sesuai nama yang diberikan oleh sistemnya sendiri. Sering kali aliran inilah yang sebenarnya tersambung ke amplifier mobil, jadi ujilah dengan tombol speaker jika saluran tidak bersuara.</string>
+    <string name="audio_usage_automotive_info">Ini adalah head unit Android Automotive. Mobil menentukan tempat audio diputar berdasarkan jenis suara, bukan aliran, jadi pilihan di bawah adalah jenis-jenis tersebut, masing-masing dengan output tujuan mobil mengirimnya. Pilih untuk setiap kanal jenis yang output-nya tersambung sesuai keinginan Anda, misalnya Petunjuk navigasi untuk Panduan, lalu periksa dengan tombol speaker.</string>
+    <string name="audio_usage_output_format">%1$s → %2$s</string>
+    <string name="audio_usage_unavailable_format">Penggunaan %1$d (tidak ada di perangkat ini)</string>
+    <string name="audio_usage_media">Media</string>
+    <string name="audio_usage_navigation_guidance">Petunjuk navigasi</string>
+    <string name="audio_usage_assistant">Asisten suara</string>
+    <string name="audio_usage_voice_communication">Panggilan telepon</string>
+    <string name="audio_usage_voice_communication_signalling">Sinyal panggilan</string>
+    <string name="audio_usage_notification_ringtone">Nada dering</string>
+    <string name="audio_usage_notification">Notifikasi</string>
+    <string name="audio_usage_notification_event">Peristiwa notifikasi</string>
+    <string name="audio_usage_alarm">Alarm</string>
+    <string name="audio_usage_assistance_sonification">Suara sistem</string>
+    <string name="audio_usage_assistance_accessibility">Aksesibilitas</string>
+    <string name="audio_usage_game">Game</string>
 
     <!-- Onboarding: audio step -->
     <string name="onb_audio_title">Suara</string>
