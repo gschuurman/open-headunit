@@ -672,6 +672,22 @@
     <!-- A saved stream that this device does not have, e.g. after restoring a backup. -->
     <string name="audio_stream_unavailable_format">Stream %1$d (not on this device)</string>
     <string name="audio_stream_vendor_info">This head unit has output streams that stock Android does not, listed below under the names its own system gives them. They are often the ones the car\'s amplifier is actually wired to, so try them with the speaker button if a channel stays silent.</string>
+    <!-- Android Automotive: the car routes audio by usage, so the picker lists usages instead of streams. -->
+    <string name="audio_usage_automotive_info">This is an Android Automotive head unit. The car decides where audio plays by what kind of sound it is, not by stream, so the choices below are those kinds, each shown with the output the car sends it to. Pick the one whose output is wired the way you want for each channel - for example Navigation guidance for Guidance - and use the speaker button to check.</string>
+    <string name="audio_usage_output_format">%1$s → %2$s</string>
+    <string name="audio_usage_unavailable_format">Usage %1$d (not on this device)</string>
+    <string name="audio_usage_media">Media</string>
+    <string name="audio_usage_navigation_guidance">Navigation guidance</string>
+    <string name="audio_usage_assistant">Voice assistant</string>
+    <string name="audio_usage_voice_communication">Phone call</string>
+    <string name="audio_usage_voice_communication_signalling">Call signalling</string>
+    <string name="audio_usage_notification_ringtone">Ringtone</string>
+    <string name="audio_usage_notification">Notification</string>
+    <string name="audio_usage_notification_event">Notification event</string>
+    <string name="audio_usage_alarm">Alarm</string>
+    <string name="audio_usage_assistance_sonification">System sounds</string>
+    <string name="audio_usage_assistance_accessibility">Accessibility</string>
+    <string name="audio_usage_game">Game</string>
 
     <!-- Onboarding: guided sound check -->
     <string name="onb_audio_title">Sound</string>

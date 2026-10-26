@@ -5,6 +5,7 @@ import android.media.AudioFormat
 import android.media.AudioTrack
 import android.media.audiofx.Equalizer
 import android.os.Build
+import androidx.annotation.RequiresApi
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
@@ -68,7 +69,7 @@ internal class AudioTrackPcmOutput(stream: Int, attachHwDsp: Boolean) : PcmOutpu
         if (Build.VERSION.SDK_INT >= 23) {
             try {
                 val builder = AudioTrack.Builder()
-                    .setAudioAttributes(AudioAttributes.Builder().setLegacyStreamType(stream).build())
+                    .setAudioAttributes(attributes(stream))
                     .setAudioFormat(AudioFormat.Builder().setSampleRate(48000)
                         .setChannelMask(AudioFormat.CHANNEL_OUT_STEREO).setEncoding(AudioFormat.ENCODING_PCM_16BIT).build())
                     .setTransferMode(AudioTrack.MODE_STREAM).setBufferSizeInBytes(requestedBytes)
@@ -81,8 +82,18 @@ internal class AudioTrackPcmOutput(stream: Int, attachHwDsp: Boolean) : PcmOutpu
                 // Falling back to STREAM_MUSIC instead would silently change the selected route.
             }
         }
+        // A usage route only gets here below API 23, where usages are not offered; its nearest
+        // stream is the best this constructor can do.
         @Suppress("DEPRECATION")
-        return LegacyAudioTrack(stream, requestedBytes)
+        return LegacyAudioTrack(AudioRoute.legacyStream(stream), requestedBytes)
+    }
+
+    /** A usage route plays with that usage, so CarAudioService routes it to the right bus. */
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    private fun attributes(stream: Int): AudioAttributes {
+        val usage = AudioRoute.usage(stream)
+            ?: return AudioAttributes.Builder().setLegacyStreamType(stream).build()
+        return AudioAttributes.Builder().setUsage(usage.id).setContentType(usage.contentType).build()
     }
 
     // The framework may clamp the requested allocation. Capacity is storage; bufferFrames is

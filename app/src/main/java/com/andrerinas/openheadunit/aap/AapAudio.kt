@@ -13,6 +13,7 @@ import com.andrerinas.openheadunit.aap.protocol.proto.Control
 import com.andrerinas.openheadunit.decoder.audio.AudioSinkCodec
 import com.andrerinas.openheadunit.decoder.audio.AudioDecoder
 import com.andrerinas.openheadunit.decoder.audio.AudioDiagnostics
+import com.andrerinas.openheadunit.decoder.audio.AudioRoute
 import com.andrerinas.openheadunit.decoder.audio.AudioSinkSetupPolicy
 import com.andrerinas.openheadunit.decoder.audio.AudioStreamCatalog
 import com.andrerinas.openheadunit.decoder.audio.PlaybackFocusPolicy
@@ -208,15 +209,20 @@ internal class AapAudio(
                 audioFocusRequest = null
                 result = AudioManager.AUDIOFOCUS_REQUEST_GRANTED
             } else {
-                val usage = when (stream) {
+                // A usage route asks for focus with its own usage: on Android Automotive that is
+                // what decides which other contexts duck or pause, e.g. navigation over media.
+                val routeUsage = AudioRoute.usage(stream)
+                val usage = routeUsage?.id ?: when (stream) {
                     AudioManager.STREAM_NOTIFICATION -> AudioAttributes.USAGE_NOTIFICATION
                     AudioManager.STREAM_VOICE_CALL -> AudioAttributes.USAGE_VOICE_COMMUNICATION
                     else -> AudioAttributes.USAGE_MEDIA
                 }
+                val contentType = routeUsage?.contentType
+                        ?: if (usage == AudioAttributes.USAGE_MEDIA) AudioAttributes.CONTENT_TYPE_MUSIC else AudioAttributes.CONTENT_TYPE_SPEECH
 
                 val audioAttributes = AudioAttributes.Builder()
                         .setUsage(usage)
-                        .setContentType(if (usage == AudioAttributes.USAGE_MEDIA) AudioAttributes.CONTENT_TYPE_MUSIC else AudioAttributes.CONTENT_TYPE_SPEECH)
+                        .setContentType(contentType)
                         .build()
 
                 audioFocusRequest = AudioFocusRequest.Builder(focusRequest)
@@ -229,6 +235,7 @@ internal class AapAudio(
                 AppLog.i("Audio focus request result: ${if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) "GRANTED" else "FAILED ($result)"}")
             }
         } else { // API < 26
+            val legacyStream = AudioRoute.legacyStream(stream)
             @Suppress("DEPRECATION")
             result = when (focusRequest) {
                 Control.AudioFocusRequestNotification.AudioFocusRequestType.RELEASE_VALUE -> {
@@ -238,15 +245,15 @@ internal class AapAudio(
                 }
                 Control.AudioFocusRequestNotification.AudioFocusRequestType.GAIN_VALUE -> {
                     legacyFocusListener = protocolFocusListener
-                    audioManager.requestAudioFocus(protocolFocusListener, stream, AudioManager.AUDIOFOCUS_GAIN)
+                    audioManager.requestAudioFocus(protocolFocusListener, legacyStream, AudioManager.AUDIOFOCUS_GAIN)
                 }
                 Control.AudioFocusRequestNotification.AudioFocusRequestType.GAIN_TRANSIENT_VALUE -> {
                     legacyFocusListener = protocolFocusListener
-                    audioManager.requestAudioFocus(protocolFocusListener, stream, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT)
+                    audioManager.requestAudioFocus(protocolFocusListener, legacyStream, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT)
                 }
                 Control.AudioFocusRequestNotification.AudioFocusRequestType.GAIN_TRANSIENT_MAY_DUCK_VALUE -> {
                     legacyFocusListener = protocolFocusListener
-                    audioManager.requestAudioFocus(protocolFocusListener, stream, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK)
+                    audioManager.requestAudioFocus(protocolFocusListener, legacyStream, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK)
                 }
                 else -> AudioManager.AUDIOFOCUS_REQUEST_FAILED
             }

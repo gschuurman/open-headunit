@@ -153,7 +153,12 @@ class AudioStreamSettingsFragment : Fragment() {
         // Point the vendor streams out rather than leaving them to be noticed. On a head unit that
         // has them they are usually the interesting answer, and their names ("MUSIC_SECOND (10)")
         // mean nothing to a user who has not been told where they came from.
-        if (AudioStreamTester.vendorStreamCount(requireContext()) > 0) {
+        if (AudioStreamTester.isAutomotive(requireContext())) {
+            items.add(SettingItem.InfoBanner(
+                stableId = "audioStreamsAutomotiveInfo",
+                textResId = R.string.audio_usage_automotive_info
+            ))
+        } else if (AudioStreamTester.vendorStreamCount(requireContext()) > 0) {
             items.add(SettingItem.InfoBanner(
                 stableId = "audioStreamsVendorInfo",
                 textResId = R.string.audio_stream_vendor_info

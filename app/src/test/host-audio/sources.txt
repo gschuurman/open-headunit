@@ -19,6 +19,7 @@ app/src/main/java/com/andrerinas/openheadunit/decoder/audio/AudioJitterBufferPol
 app/src/main/java/com/andrerinas/openheadunit/decoder/audio/AudioMixer.kt
 app/src/main/java/com/andrerinas/openheadunit/decoder/audio/AudioOutputFactory.kt
 app/src/main/java/com/andrerinas/openheadunit/decoder/audio/AudioOutputPolicy.kt
+app/src/main/java/com/andrerinas/openheadunit/decoder/audio/AudioRoute.kt
 app/src/main/java/com/andrerinas/openheadunit/decoder/audio/AudioSinkHealthMonitor.kt
 app/src/main/java/com/andrerinas/openheadunit/decoder/audio/AudioSinkCodec.kt
 app/src/main/java/com/andrerinas/openheadunit/decoder/audio/AudioSinkSetupPolicy.kt

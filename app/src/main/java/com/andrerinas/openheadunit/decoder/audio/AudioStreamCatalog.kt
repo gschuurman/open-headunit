@@ -92,6 +92,14 @@ object AudioStreamCatalog {
      * but audible; handing an unknown id to AudioTrack is silence with no message attached.
      */
     fun sanitize(audioManager: AudioManager, stream: Int): Int {
+        // A usage route (Android Automotive) is checked against the usages this platform version
+        // knows, not against the stream probe: usages are not streams and never appear in it.
+        if (AudioRoute.isUsage(stream)) {
+            if (AudioRoute.isPlayableUsage(stream, Build.VERSION.SDK_INT)) return stream
+            AppLog.w("AudioStreamCatalog: usage ${AudioRoute.usageOf(stream)} is not available on this " +
+                    "device, falling back to STREAM_MUSIC")
+            return AudioManager.STREAM_MUSIC
+        }
         if (isAvailable(audioManager, stream)) return stream
         AppLog.w("AudioStreamCatalog: stream $stream is not available on this device, " +
                 "falling back to STREAM_MUSIC")
